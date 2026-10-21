@@ -47,6 +47,22 @@ export const sites: Site[] = [
     palette: ['#f6f9fc', '#1d5cf2', '#2bc4a0'],
   },
   {
+    id: 'autoservice',
+    name: 'Шестерня',
+    kind: { ru: 'Автосервис', en: 'Car service' },
+    about: { ru: 'Индустриальный стиль: цены по классу авто, «открыто сейчас» и заявка на ремонт.', en: 'Industrial style: prices by car class, live “open now” badge and a repair request form.' },
+    fonts: 'Russo One / Golos Text',
+    palette: ['#15171a', '#f5c518', '#eef0f2'],
+  },
+  {
+    id: 'beauty',
+    name: 'Пион',
+    kind: { ru: 'Салон красоты', en: 'Beauty salon' },
+    about: { ru: 'Нежный сайт: прайс по вкладкам, галерея и онлайн-запись с выбором дня и времени.', en: 'A soft, airy site: tabbed price list, gallery and booking with day and time slots.' },
+    fonts: 'Forum / Montserrat',
+    palette: ['#fbf6f4', '#c2667a', '#3a2a2e'],
+  },
+  {
     id: 'photographer',
     name: 'Вера Лаврова',
     kind: { ru: 'Визитка фотографа', en: 'Photographer' },
