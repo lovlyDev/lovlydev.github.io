@@ -6,6 +6,7 @@ import { Icon } from './components/Icon';
 import { Lightbox } from './components/Lightbox';
 import { kloc, WorkShowcase } from './components/WorkShowcase';
 import { VfxShowcase } from './components/VfxShowcase';
+import { SitesShowcase } from './components/SitesShowcase';
 
 
 function Nav() {
@@ -16,6 +17,7 @@ function Nav() {
         <a href="#top" className="logo">lovlyDev</a>
         <div className="nav-links">
           <a href="#work">{t({ ru: 'Работы', en: 'Work' })}</a>
+          <a href="#sites">{t({ ru: 'Сайты', en: 'Websites' })}</a>
           <a href="#vfx">Roblox</a>
           <a href="#services">{t({ ru: 'Услуги', en: 'Services' })}</a>
           <a href="#about">{t({ ru: 'Обо мне', en: 'About' })}</a>
@@ -91,6 +93,7 @@ export default function App() {
 
         <WorkShowcase onOpen={(p, i) => setView({ p, i })} />
         <VfxShowcase />
+        <SitesShowcase />
 
         <Section id="services" title={t({ ru: 'Чем могу помочь', en: 'What I can do for you' })}>
           <ul className="services">
