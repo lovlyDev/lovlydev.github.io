@@ -42,9 +42,9 @@ export const sites: Site[] = [
     id: 'dental',
     name: 'Белая линия',
     kind: { ru: 'Стоматология', en: 'Dental clinic' },
-    about: { ru: 'Чистый сайт, которому доверяют: услуги, врачи и калькулятор стоимости.', en: 'A clean, trustworthy site: services, doctors and a live price calculator.' },
-    fonts: 'Manrope',
-    palette: ['#f6f9fc', '#1d5cf2', '#2bc4a0'],
+    about: { ru: 'Спокойный «бумажный» сайт: прайс со сметой-чеком, врачи с днями приёма и запись на свободное время.', en: 'A calm, paper-like site: a price list that builds a receipt, doctors’ schedules and booking into free slots.' },
+    fonts: 'Spectral / Onest',
+    palette: ['#f4f1eb', '#1d2422', '#3d6b5e'],
   },
   {
     id: 'autoservice',
