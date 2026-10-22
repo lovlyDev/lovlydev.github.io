@@ -1,12 +1,14 @@
 import { useState, type ReactNode } from 'react';
 import { links, services, stack, steps, TELEGRAM } from './data/profile';
-import { projects, totalLoc, type Project } from './data/projects';
+import { type Project } from './data/projects';
 import { useLang } from './i18n';
 import { Icon } from './components/Icon';
 import { Lightbox } from './components/Lightbox';
-import { kloc, WorkShowcase } from './components/WorkShowcase';
+import { WorkShowcase } from './components/WorkShowcase';
 import { VfxShowcase } from './components/VfxShowcase';
 import { SitesShowcase } from './components/SitesShowcase';
+import { Facts } from './components/Facts';
+import { SectionLines } from './components/SectionLines';
 
 
 function Nav() {
@@ -37,12 +39,6 @@ function Nav() {
 
 function Hero() {
   const { t } = useLang();
-  const facts = [
-    { v: String(projects.length), l: { ru: 'продуктов в открытом доступе', en: 'products shipped publicly' } },
-    { v: kloc(totalLoc), l: { ru: 'строк кода в этих проектах', en: 'lines of code across them' } },
-    { v: '4', l: { ru: 'года в разработке', en: 'years of development' } },
-    { v: 'C++ · Rust · TS', l: { ru: 'от железа до интерфейса', en: 'from metal to interface' } },
-  ];
   return (
     <header className="hero wrap" id="top">
       <p className="mono muted hero-tag">
@@ -61,11 +57,7 @@ function Hero() {
         </a>
         <a className="btn btn-ghost" href="#work">{t({ ru: 'Смотреть работы', en: 'See work' })}</a>
       </div>
-      <dl className="facts">
-        {facts.map((f, i) => (
-          <div key={i}><dt>{f.v}</dt><dd>{t(f.l)}</dd></div>
-        ))}
-      </dl>
+      <Facts />
     </header>
   );
 }
@@ -88,6 +80,7 @@ export default function App() {
   return (
     <>
       <Nav />
+      <SectionLines />
       <main>
         <Hero />
 
