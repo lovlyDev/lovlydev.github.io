@@ -11,8 +11,8 @@ import { Facts } from './components/Facts';
 import { SectionLines } from './components/SectionLines';
 import { Process } from './components/Process';
 import { Contact } from './components/Contact';
+import { LangDonut } from './components/LangDonut';
 import { ServicesList } from './components/ServicesList';
-import { StackLayers } from './components/StackLayers';
 
 
 function Nav() {
@@ -122,7 +122,7 @@ export default function App() {
                 en: 'I care about products being fast, clear and actually shipped. I use AI as a tool — for automation and smart features inside apps — but I own the architecture and the code.',
               })}</p>
             </div>
-            <StackLayers />
+            <LangDonut />
             <dl className="spec">
               <div><dt className="mono">{t({ ru: 'Город', en: 'Based in' })}</dt><dd>{t({ ru: 'Курск, Россия', en: 'Kursk, Russia' })}</dd></div>
               <div><dt className="mono">{t({ ru: 'Возраст', en: 'Age' })}</dt><dd>18</dd></div>

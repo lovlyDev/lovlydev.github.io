@@ -17,7 +17,7 @@ const LANG_COLORS: Record<string, string> = {
   Python: '#3572a5',
   'PL/pgSQL': '#336790',
 };
-const langColor = (name: string) => LANG_COLORS[name] ?? '#6e6e6e';
+export const langColor = (name: string) => LANG_COLORS[name] ?? '#6e6e6e';
 
 function LangBar({ langs }: { langs: [string, number][] }) {
   return (
