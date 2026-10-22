@@ -112,6 +112,7 @@ export default function App() {
 
         <Section id="about" title={t({ ru: 'Обо мне', en: 'About' })}>
           <div className="about">
+            <div className="about-left">
             <div className="about-text">
               <p>{t({
                 ru: 'Меня зовут Артём, в сети — lovlyDev. Мне 18, живу в Курске, программирую 4 года. Начинал с вёрстки, сейчас пишу продукты целиком: вычислительные ядра на C++, бэкенды и десктоп на Rust, интерфейсы на TypeScript и React.',
@@ -122,12 +123,13 @@ export default function App() {
                 en: 'I care about products being fast, clear and actually shipped. I use AI as a tool — for automation and smart features inside apps — but I own the architecture and the code.',
               })}</p>
             </div>
-            <LangDonut />
             <dl className="spec">
               <div><dt className="mono">{t({ ru: 'Город', en: 'Based in' })}</dt><dd>{t({ ru: 'Курск, Россия', en: 'Kursk, Russia' })}</dd></div>
               <div><dt className="mono">{t({ ru: 'Возраст', en: 'Age' })}</dt><dd>18</dd></div>
               {stack.map((s, i) => <div key={i}><dt className="mono">{t(s.title)}</dt><dd>{t(s.items)}</dd></div>)}
             </dl>
+            </div>
+            <LangDonut />
           </div>
         </Section>
 
