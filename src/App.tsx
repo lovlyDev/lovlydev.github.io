@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react';
-import { services, stack, TELEGRAM } from './data/profile';
+import { stack, TELEGRAM } from './data/profile';
 import { type Project } from './data/projects';
 import { useLang } from './i18n';
 import { Icon } from './components/Icon';
@@ -11,6 +11,8 @@ import { Facts } from './components/Facts';
 import { SectionLines } from './components/SectionLines';
 import { Process } from './components/Process';
 import { Contact } from './components/Contact';
+import { ServicesList } from './components/ServicesList';
+import { StackLayers } from './components/StackLayers';
 
 
 function Nav() {
@@ -25,6 +27,7 @@ function Nav() {
           <a href="#vfx">Roblox</a>
           <a href="#services">{t({ ru: 'Услуги', en: 'Services' })}</a>
           <a href="#about">{t({ ru: 'Обо мне', en: 'About' })}</a>
+          <a href="./price.html" className="nav-price">{t({ ru: 'Цены', en: 'Pricing' })}</a>
         </div>
         <div className="lang" role="group" aria-label="Language">
           {(['ru', 'en'] as const).map(l => (
@@ -91,24 +94,17 @@ export default function App() {
         <SitesShowcase />
 
         <Section id="services" title={t({ ru: 'Чем могу помочь', en: 'What I can do for you' })}>
-          <ul className="services">
-            {services.map((s, i) => (
-              <li className="service" key={i}>
-                <h3>{t(s.title)}</h3>
-                <p className="muted">{t(s.text)}</p>
-                <p className="mono service-stack">{s.tags.map(tag => <span key={tag}>{tag}</span>)}</p>
-              </li>
-            ))}
-          </ul>
+          <ServicesList />
 
           <div className="pricing">
             <p>
-              <strong>{t({ ru: 'Стоимость — по задаче.', en: 'Pricing depends on the task.' })}</strong>{' '}
-              <span className="muted">{t({ ru: 'Опишите, что нужно, и я назову цену и сроки после короткого обсуждения.', en: 'Describe what you need and I’ll quote price and timeline after a short chat.' })}</span>
+              <strong>{t({ ru: 'Сколько стоит?', en: 'How much?' })}</strong>{' '}
+              <span className="muted">{t({ ru: 'Посчитайте примерную цену и сроки в калькуляторе — это займёт пару минут.', en: 'Get a rough price and timeline in the calculator — it takes a couple of minutes.' })}</span>
             </p>
-            <a className="btn btn-primary" href={TELEGRAM} target="_blank" rel="noreferrer">
-              {t({ ru: 'Обсудить проект', en: 'Start a project' })} <Icon name="arrow" />
-            </a>
+            <div className="pricing-btns">
+              <a className="btn btn-primary" href="./price.html">{t({ ru: 'Посчитать стоимость', en: 'Estimate the price' })} <Icon name="arrow" /></a>
+              <a className="btn btn-ghost" href={TELEGRAM} target="_blank" rel="noreferrer">{t({ ru: 'Обсудить проект', en: 'Start a project' })}</a>
+            </div>
           </div>
         </Section>
 
@@ -126,6 +122,7 @@ export default function App() {
                 en: 'I care about products being fast, clear and actually shipped. I use AI as a tool — for automation and smart features inside apps — but I own the architecture and the code.',
               })}</p>
             </div>
+            <StackLayers />
             <dl className="spec">
               <div><dt className="mono">{t({ ru: 'Город', en: 'Based in' })}</dt><dd>{t({ ru: 'Курск, Россия', en: 'Kursk, Russia' })}</dd></div>
               <div><dt className="mono">{t({ ru: 'Возраст', en: 'Age' })}</dt><dd>18</dd></div>

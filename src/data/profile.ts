@@ -20,9 +20,11 @@ export const stack: { title: L; items: L }[] = [
   { title: { ru: 'ИИ', en: 'AI' }, items: { ru: 'автоматизация, LLM-агенты в продуктах', en: 'automation, LLM agents inside products' } },
 ];
 
-export const services: { title: L; text: L; tags: string[] }[] = [
+/** `to`: the section a row leads to */
+export const services: { title: L; text: L; tags: string[]; to: string }[] = [
   {
     tags: ['Landing', 'Portfolio', 'SEO', 'Responsive'],
+    to: '#sites',
     title: { ru: 'Сайты', en: 'Websites' },
     text: {
       ru: 'Лендинги, сайты компаний и портфолио. Быстрые, адаптивные, с аккуратной вёрсткой и базовым SEO.',
@@ -31,6 +33,7 @@ export const services: { title: L; text: L; tags: string[] }[] = [
   },
   {
     tags: ['React', 'Node.js', 'PostgreSQL', 'WebSocket'],
+    to: '#work',
     title: { ru: 'Веб-приложения', en: 'Web applications' },
     text: {
       ru: 'Личные кабинеты, админ-панели, сервисы и соцсети — с базой данных и обновлениями в реальном времени.',
@@ -39,6 +42,7 @@ export const services: { title: L; text: L; tags: string[] }[] = [
   },
   {
     tags: ['Tauri', 'Rust', 'C++', 'Auto-update'],
+    to: '#work',
     title: { ru: 'Десктоп-приложения', en: 'Desktop applications' },
     text: {
       ru: 'Программы для Windows, macOS и Linux на Tauri + Rust/C++: лёгкие, быстрые, с автообновлением.',
@@ -47,6 +51,7 @@ export const services: { title: L; text: L; tags: string[] }[] = [
   },
   {
     tags: ['Roblox Studio', 'Particles', 'Beams'],
+    to: '#vfx',
     title: { ru: 'VFX для Roblox', en: 'Roblox VFX' },
     text: {
       ru: 'Эффекты способностей, ударов и катсцен: заряд, взрывы, ударные волны, работа камеры. Под стиль вашей игры.',
@@ -55,6 +60,7 @@ export const services: { title: L; text: L; tags: string[] }[] = [
   },
   {
     tags: ['Luau', 'Roblox Studio', 'Client / Server'],
+    to: '#vfx',
     title: { ru: 'Скрипты для Roblox', en: 'Roblox scripts' },
     text: {
       ru: 'Игровые механики, способности, системы и интерфейсы на Luau — с разделением на клиент и сервер.',
@@ -63,6 +69,7 @@ export const services: { title: L; text: L; tags: string[] }[] = [
   },
   {
     tags: ['Scripts', 'API', 'LLM', 'Integrations'],
+    to: '#work',
     title: { ru: 'Автоматизация и ИИ', en: 'Automation & AI' },
     text: {
       ru: 'Скрипты, интеграции и ИИ-функции, которые снимают рутину с вас или ваших пользователей.',
