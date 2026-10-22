@@ -1,5 +1,5 @@
 import { useState, type ReactNode } from 'react';
-import { links, services, stack, steps, TELEGRAM } from './data/profile';
+import { services, stack, TELEGRAM } from './data/profile';
 import { type Project } from './data/projects';
 import { useLang } from './i18n';
 import { Icon } from './components/Icon';
@@ -9,6 +9,8 @@ import { VfxShowcase } from './components/VfxShowcase';
 import { SitesShowcase } from './components/SitesShowcase';
 import { Facts } from './components/Facts';
 import { SectionLines } from './components/SectionLines';
+import { Process } from './components/Process';
+import { Contact } from './components/Contact';
 
 
 function Nav() {
@@ -99,28 +101,18 @@ export default function App() {
             ))}
           </ul>
 
-          <div className="process">
-            <h4 className="mono">{t({ ru: 'Как работаем', en: 'How it works' })}</h4>
-            <ol className="timeline">
-              {steps.map((s, i) => (
-                <li key={i}>
-                  <span className="node" />
-                  <strong>{t(s.title)}</strong>
-                  <span className="muted">{t(s.text)}</span>
-                </li>
-              ))}
-            </ol>
-            <div className="pricing">
-              <p>
-                <strong>{t({ ru: 'Стоимость — по задаче.', en: 'Pricing depends on the task.' })}</strong>{' '}
-                <span className="muted">{t({ ru: 'Опишите, что нужно, и я назову цену и сроки после короткого обсуждения.', en: 'Describe what you need and I’ll quote price and timeline after a short chat.' })}</span>
-              </p>
-              <a className="btn btn-primary" href={TELEGRAM} target="_blank" rel="noreferrer">
-                {t({ ru: 'Обсудить проект', en: 'Start a project' })} <Icon name="arrow" />
-              </a>
-            </div>
+          <div className="pricing">
+            <p>
+              <strong>{t({ ru: 'Стоимость — по задаче.', en: 'Pricing depends on the task.' })}</strong>{' '}
+              <span className="muted">{t({ ru: 'Опишите, что нужно, и я назову цену и сроки после короткого обсуждения.', en: 'Describe what you need and I’ll quote price and timeline after a short chat.' })}</span>
+            </p>
+            <a className="btn btn-primary" href={TELEGRAM} target="_blank" rel="noreferrer">
+              {t({ ru: 'Обсудить проект', en: 'Start a project' })} <Icon name="arrow" />
+            </a>
           </div>
         </Section>
+
+        <Process />
 
         <Section id="about" title={t({ ru: 'Обо мне', en: 'About' })}>
           <div className="about">
@@ -142,23 +134,7 @@ export default function App() {
           </div>
         </Section>
 
-        <section className="contact wrap" id="contact">
-          <h2>{t({ ru: 'Есть задача? Напишите, обсудим.', en: 'Have a project? Message me and let’s talk.' })}</h2>
-          <a className="btn btn-primary btn-lg" href={TELEGRAM} target="_blank" rel="noreferrer">
-            {t({ ru: 'Написать в Telegram', en: 'Message on Telegram' })} <Icon name="arrow" />
-          </a>
-          <ul className="contact-list">
-            {links.map(l => (
-              <li key={l.label}>
-                <a href={l.href} target="_blank" rel="noreferrer">
-                  <span>{l.label}</span>
-                  <span className="mono muted">{l.handle}</span>
-                  <Icon name="arrowUpRight" />
-                </a>
-              </li>
-            ))}
-          </ul>
-        </section>
+        <Contact />
       </main>
 
       <footer className="footer wrap mono muted">
