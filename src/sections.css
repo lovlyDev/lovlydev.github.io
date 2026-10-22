@@ -160,35 +160,65 @@
 .pricing-btns { display: flex; flex-wrap: wrap; gap: 10px; }
 .nav-links .nav-price { color: var(--fg); }
 
-/* ---------- about: stack plates ---------- */
+/* ---------- about: isometric stack ---------- */
 .about .stk { grid-column: 1; }
 .about .spec { grid-column: 2; grid-row: 1 / span 2; align-self: start; }
-.stk { --p: 0; display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; align-items: center; margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--line); }
-.stack-scene { position: relative; height: 300px; perspective: 1200px; }
-.plate { z-index: calc(10 - var(--k)); position: absolute; left: 50%; top: 50%; width: 260px; height: 170px; margin: -85px 0 0 -130px; padding: 0; border: 0; background: none; cursor: pointer;
-  --gap: 46px; --fly: clamp(0, var(--p) * 1.6 - var(--k) * .25, 1);
-  transform: rotateX(58deg) rotateZ(-38deg) translateZ(calc((1 - var(--k)) * var(--gap) + (1 - var(--fly)) * (220px - var(--k) * 60px)));
-  opacity: calc(var(--fly) * 1.4); transition: transform .5s cubic-bezier(.22, 1, .36, 1); transform-style: preserve-3d; }
-.plate-top { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 2px; padding: 16px 18px; border-radius: 14px; border: 1px solid color-mix(in srgb, var(--c) 55%, transparent); background: linear-gradient(140deg, color-mix(in srgb, var(--c) 26%, #0b0b0b), #070707 70%); box-shadow: 0 0 0 1px rgba(255, 255, 255, .03) inset, 0 24px 40px rgba(0, 0, 0, .55); text-align: left; transition: border-color .3s, box-shadow .3s, background .3s; }
-.plate-top b { font-size: 18px; font-weight: 600; }
-.plate-top small { font-size: 11px; color: var(--muted); }
-.plate.on { --gap: 58px; }
-.plate.on .plate-top { border-color: var(--c); box-shadow: 0 0 0 1px rgba(255, 255, 255, .06) inset, 0 0 40px color-mix(in srgb, var(--c) 35%, transparent), 0 24px 40px rgba(0, 0, 0, .55); }
-.plate:hover { transform: rotateX(58deg) rotateZ(-38deg) translateZ(calc((1 - var(--k)) * var(--gap) + 18px)); }
-.stack-info { animation: stack-in .45s cubic-bezier(.22, 1, .36, 1) both; }
-@keyframes stack-in { from { opacity: 0; transform: translateY(8px); } }
-.stack-kicker { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 12px; color: var(--muted); }
-.stack-kicker i { width: 8px; height: 8px; border-radius: 2px; }
-.stack-text { margin: 0 0 18px; font-size: 16px; line-height: 1.5; }
-.stack-info dl { margin: 0; border-top: 1px solid var(--line); }
-.stack-info dl div { display: grid; grid-template-columns: 96px 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
-.stack-info dt { color: var(--muted); font-size: 12px; padding-top: 2px; }
+.stk { --p: 0; --ease: cubic-bezier(.22, 1, .36, 1); display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; margin-top: 48px; padding-top: 36px; border-top: 1px solid var(--line); }
+.stk-scene { position: relative; height: 340px; }
+.stk-scene::before { content: ''; position: absolute; left: 50%; top: 55%; width: 300px; height: 200px; transform: translate(-50%, -50%); background: radial-gradient(closest-side, color-mix(in srgb, var(--c) 30%, transparent), transparent); filter: blur(20px); transition: background .6s; }
+.stk-iso { position: absolute; left: 50%; top: 50%; width: 0; height: 0; }
+.plate {
+  --w: 230px; --h: 230px; --gap: 64px;
+  /* 0 → spread apart, 1 → stacked */
+  --fly: clamp(0, var(--p) * 1.5 - var(--k) * .2, 1);
+  --lift: 0px;
+  position: absolute; left: calc(var(--w) / -2); top: calc(var(--h) / -2); width: var(--w); height: var(--h);
+  z-index: calc(10 - var(--k)); cursor: pointer;
+  transform: translate(var(--shift, 0px), calc((var(--k) - 1) * var(--gap) + (1 - var(--fly)) * (var(--k) - 1) * 70px - var(--lift))) rotateX(60deg) rotateZ(-45deg);
+  opacity: clamp(0, var(--fly) * 2, 1);
+  transition: transform .7s var(--ease), filter .5s ease;
+  filter: brightness(.55) saturate(.7);
+}
+.plate.on { filter: none; }
+/* the chosen plate slides out of the stack where nothing covers it: top up, middle left, bottom down */
+.plate.on:nth-child(1) { --lift: 28px; }
+.plate.on:nth-child(2) { --shift: -74px; --lift: -8px; }
+.plate.on:nth-child(3) { --lift: -26px; --shift: -10px; }
+.plate-face { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; padding: 20px; overflow: hidden; border-radius: 18px; border: 1px solid color-mix(in srgb, var(--pc) 45%, #222); background: linear-gradient(135deg, color-mix(in srgb, var(--pc) 22%, #0d0d0d) 0%, #090909 75%); box-shadow: 0 1px 0 rgba(255, 255, 255, .06) inset; transition: border-color .4s, box-shadow .5s; }
+.plate.on .plate-face { border-color: var(--pc); box-shadow: 0 0 0 1px color-mix(in srgb, var(--pc) 40%, transparent) inset, 0 0 50px color-mix(in srgb, var(--pc) 45%, transparent); }
+.plate-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px); background-size: 23px 23px; mask-image: linear-gradient(135deg, #000, transparent 80%); }
+.plate-face b { position: relative; font-size: 22px; font-weight: 600; letter-spacing: -0.02em; }
+.plate-face small { position: relative; font-size: 11px; color: rgba(255, 255, 255, .55); }
+/* thickness: a darker slab peeking out under each plate */
+.plate-side { position: absolute; inset: 0; z-index: -1; border-radius: 18px; background: color-mix(in srgb, var(--pc) 30%, #050505); transform: translate(5px, 5px); }
+
+.stk-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+.stk-tabs button { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; overflow: hidden; border: 1px solid var(--line-strong); border-radius: 999px; font-size: 13.5px; color: var(--muted); transition: color .25s, border-color .25s, background .25s; }
+.stk-tabs button i { width: 8px; height: 8px; border-radius: 50%; background: var(--pc); opacity: .5; transition: opacity .25s, box-shadow .25s; }
+.stk-tabs button:hover { color: var(--fg); }
+.stk-tabs button.on { color: #fff; border-color: color-mix(in srgb, var(--pc) 70%, #fff); background: color-mix(in srgb, var(--pc) 14%, #000); }
+.stk-tabs button.on i { opacity: 1; box-shadow: 0 0 10px var(--pc); }
+.stk-timer { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--pc); transform-origin: left; animation: stk-timer 3.2s linear both; }
+@keyframes stk-timer { from { transform: scaleX(0); } }
+.stk-info { animation: stk-in .5s var(--ease) both; }
+@keyframes stk-in { from { opacity: 0; transform: translateY(8px); } }
+.stk-text { margin: 0 0 18px; font-size: 16px; line-height: 1.5; }
+.stk-share { display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center; margin-bottom: 14px; }
+.stk-bar { height: 4px; border-radius: 2px; background: #1e1e1e; overflow: hidden; }
+.stk-bar i { display: block; height: 100%; border-radius: 2px; background: var(--c); animation: stk-bar .9s var(--ease) both; }
+@keyframes stk-bar { from { width: 0 !important; } }
+.stk-share span { font-size: 12px; color: var(--muted); }
+.stk-info dl { margin: 0; border-top: 1px solid var(--line); }
+.stk-info dl div { display: grid; grid-template-columns: 96px 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+.stk-info dt { color: var(--muted); font-size: 12px; padding-top: 2px; }
 @media (max-width: 960px) {
   .about .stk, .about .spec { grid-column: auto; grid-row: auto; }
 }
 @media (max-width: 640px) {
-  .stk { grid-template-columns: 1fr; gap: 8px; }
-  .stack-scene { height: 250px; }
-  .plate { width: 220px; height: 145px; margin: -72px 0 0 -110px; --gap: 40px; }
+  .stk { grid-template-columns: 1fr; gap: 4px; }
+  .stk-scene { height: 280px; }
+  .plate { --w: 180px; --h: 180px; --gap: 52px; }
+  .plate-face { padding: 16px; }
+  .plate-face b { font-size: 18px; }
 }
-@media (prefers-reduced-motion: reduce) { .plate { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .plate, .stk-info, .stk-bar i { transition: none; animation: none; } }
