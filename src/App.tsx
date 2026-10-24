@@ -27,6 +27,7 @@ function Nav() {
           <a href="#vfx">Roblox</a>
           <a href="#services">{t({ ru: 'Услуги', en: 'Services' })}</a>
           <a href="#about">{t({ ru: 'Обо мне', en: 'About' })}</a>
+          <a href="./cases.html" className="nav-price">{t({ ru: 'Кейсы', en: 'Cases' })}</a>
           <a href="./price.html" className="nav-price">{t({ ru: 'Цены', en: 'Pricing' })}</a>
         </div>
         <div className="lang" role="group" aria-label="Language">

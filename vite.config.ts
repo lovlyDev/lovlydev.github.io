@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   base: './',
   plugins: [react()],
-  // two pages; lab.html is a dev-only playground and stays out of the build
-  build: { rollupOptions: { input: { main: 'index.html', price: 'price.html' } } },
+  // site pages; lab.html is a dev-only playground and stays out of the build
+  build: { rollupOptions: { input: { main: 'index.html', price: 'price.html', cases: 'cases.html' } } },
 });

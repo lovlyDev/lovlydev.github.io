@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Кейсы · lovlyDev</title>
+    <meta name="description" content="Кейсы lovlyDev: Telegram Mini App Cardly и веб-платформа поиска тиммейтов — сделаны с нуля, от ТЗ до запуска." />
+    <meta name="theme-color" content="#000000" />
+    <link rel="canonical" href="https://lovlydev.github.io/cases.html" />
+    <meta name="google-site-verification" content="nQ9O4PKiLU0ERjmClZ50dWrtqFpSre1x8IiMWfRS2Ro" />
+    <!-- social previews (Telegram, VK, X, Discord): image URLs must be absolute -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="lovlyDev" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:url" content="https://lovlydev.github.io/cases.html" />
+    <meta property="og:title" content="Кейсы lovlyDev — проекты с нуля до запуска" />
+    <meta property="og:description" content="Сайты, веб-сервисы и десктоп-приложения: от GPU-вычислений на C++ до интерфейса на React. Портфолио и заказ." />
+    <meta property="og:image" content="https://lovlydev.github.io/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Артём — разработчик. Сайты, веб-сервисы и десктоп-приложения." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Артём · lovlyDev — разработчик" />
+    <meta name="twitter:description" content="Сайты, веб-сервисы и десктоп-приложения. Портфолио и заказ." />
+    <meta name="twitter:image" content="https://lovlydev.github.io/og.jpg" />
+    <link rel="icon" href="./avatar.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113721379', 'ym');
+      ym(113721379, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", accurateTrackBounce:true, trackLinks:true});
+      // goal "telegram_click": any link to Telegram (header button, hero, contacts)
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href*="t.me/"]');
+        if (a) ym(113721379, 'reachGoal', 'telegram_click');
+      });
+    </script>
+    <!-- /Yandex.Metrika counter -->
+  </head>
+  <body>
+    <noscript><div><img src="https://mc.yandex.ru/watch/113721379" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/cases/main.tsx"></script>
+  </body>
+</html>
