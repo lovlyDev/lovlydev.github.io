@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { lazy, Suspense, useState, type ReactNode } from 'react';
 import { stack, TELEGRAM } from './data/profile';
 import { type Project } from './data/projects';
 import { useLang } from './i18n';
@@ -10,6 +10,8 @@ import { SitesShowcase } from './components/SitesShowcase';
 import { Facts } from './components/Facts';
 import { SectionLines } from './components/SectionLines';
 import { Process } from './components/Process';
+
+const HeroShader = lazy(() => import('./components/HeroShader'));
 import { Contact } from './components/Contact';
 import { LangDonut } from './components/LangDonut';
 import { ServicesList } from './components/ServicesList';
@@ -47,6 +49,7 @@ function Hero() {
   const { t } = useLang();
   return (
     <header className="hero wrap" id="top">
+      <div className="hero-bg" aria-hidden="true"><Suspense fallback={null}><HeroShader /></Suspense></div>
       <p className="mono muted hero-tag">
         <span className="dot" />{t({ ru: 'Принимаю заказы', en: 'Available for work' })}
       </p>

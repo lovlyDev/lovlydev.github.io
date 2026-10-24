@@ -59,7 +59,11 @@ h1, h2, h3, h4, p, dl, dd, ul, ol { margin: 0; }
 .lang button.on { color: var(--fg); text-decoration: underline; text-underline-offset: 4px; }
 
 /* ---------- hero ---------- */
-.hero { padding: 120px 0 0; }
+.hero { position: relative; isolation: isolate; padding: 120px 0 0; }
+/* full-width shader behind the hero: fades out towards the facts and is darkened behind the headline */
+.hero-bg { position: absolute; z-index: -1; top: 0; bottom: 0; left: 50%; width: 100vw; translate: -50% 0; pointer-events: none; mask-image: linear-gradient(180deg, #000 0%, #000 55%, transparent 100%); animation: hero-bg-in 1.2s ease both; }
+.hero-bg::after { content: ''; position: absolute; inset: 0; background: radial-gradient(70% 60% at 30% 40%, rgba(0, 0, 0, .55), transparent 75%); }
+@keyframes hero-bg-in { from { opacity: 0; } }
 .hero-tag { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
 .dot { width: 8px; height: 8px; border-radius: 50%; background: #3fb950; box-shadow: 0 0 0 3px rgba(63, 185, 80, .18); }
 .hero h1 { max-width: 980px; font-size: clamp(32px, 5.2vw, 60px); line-height: 1.08; font-weight: 600; letter-spacing: -0.035em; }
