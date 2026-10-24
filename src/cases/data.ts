@@ -98,7 +98,7 @@ export const cases: Case[] = [
     ],
   },
   {
-    id: 'partyup',
+    id: 'platform',
     name: { ru: 'Платформа поиска тиммейтов', en: 'Teammate-finding platform' },
     kind: { ru: 'Веб-платформа · под NDA', en: 'Web platform · under NDA' },
     period: { ru: 'Июль 2026 · проект закрыт', en: 'July 2026 · project closed' },
@@ -119,27 +119,27 @@ export const cases: Case[] = [
       {
         title: { ru: 'Быстрый старт', en: 'Quick start' },
         text: { ru: 'Главная сразу предлагает три действия: выбрать игру, найти группу на вечер или искать игроков. Рекомендации учитывают профиль.', en: 'The home screen offers three actions at once: pick a game, find a group for tonight or search players. Recommendations use the profile.' },
-        shot: shot('partyup', 'd-dashboard'),
+        shot: shot('platform', 'd-dashboard'),
       },
       {
         title: { ru: 'Поиск игроков', en: 'Player search' },
         text: { ru: 'Фильтры по игре, платформе, региону, языку, голосу и свободному времени. Приватные поля скрыты настройками приватности игрока.', en: 'Filters by game, platform, region, language, voice and free time. Private fields stay hidden by each player’s privacy settings.' },
-        shot: shot('partyup', 'd-search'),
+        shot: shot('platform', 'd-search'),
       },
       {
         title: { ru: 'Заявки на игру', en: 'Game requests' },
         text: { ru: 'Игрок публикует заявку с ролями и рангом — движок подбора сам предлагает подходящих людей и объясняет, почему они подходят.', en: 'A player posts a request with roles and rank; the matching engine suggests fitting people and explains why they fit.' },
-        shot: shot('partyup', 'd-lfg-detail'),
+        shot: shot('platform', 'd-lfg-detail'),
       },
       {
         title: { ru: 'Расписание', en: 'Schedule' },
         text: { ru: 'Регулярные интервалы и исключения в своём часовом поясе — пересечения времени считаются автоматически.', en: 'Recurring slots and exceptions in your own time zone; overlaps are computed automatically.' },
-        shot: shot('partyup', 'd-schedule'),
+        shot: shot('platform', 'd-schedule'),
       },
       {
         title: { ru: 'Команды', en: 'Teams' },
         text: { ru: 'Постоянные составы с ролями, заявками на вступление и приглашениями.', en: 'Permanent rosters with roles, join applications and invitations.' },
-        shot: shot('partyup', 'd-teams'),
+        shot: shot('platform', 'd-teams'),
       },
     ],
     features: [

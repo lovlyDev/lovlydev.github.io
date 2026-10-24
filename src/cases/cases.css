@@ -49,7 +49,7 @@
 .cs-head h2 { font-size: clamp(36px, 5vw, 60px); font-weight: 600; letter-spacing: -0.04em; line-height: 1; }
 .cs-period { display: flex; align-items: center; gap: 10px; color: var(--muted); }
 .cs-period i { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 22%, transparent); }
-#partyup .cs-period i { background: var(--muted); box-shadow: none; }
+#platform .cs-period i { background: var(--muted); box-shadow: none; }
 
 .cs-intro { display: grid; grid-template-columns: 7fr 5fr; gap: 48px; margin-top: 48px; }
 .cs-lead { font-size: 22px; line-height: 1.5; letter-spacing: -0.01em; }
