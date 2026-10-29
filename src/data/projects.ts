@@ -4,6 +4,8 @@ export type Project = {
   id: string;
   name: string;
   version: string;
+  /** GitHub source for the displayed version; version above is the offline fallback. */
+  versionSource?: { repo: string; path?: string };
   kind: L;
   platforms: string;
   tagline: L;
@@ -28,7 +30,8 @@ export const projects: Project[] = [
   {
     id: 'forma',
     name: 'Forma CAD',
-    version: '1.3.0',
+    version: '1.5.1',
+    versionSource: { repo: 'lovlyDev/FormaCAD' },
     kind: { ru: 'Десктоп-приложение', en: 'Desktop app' },
     platforms: 'Windows, macOS, Linux',
     tagline: {
@@ -36,14 +39,14 @@ export const projects: Project[] = [
       en: 'A CAD where you describe a part in words — AI edits the model, Forma validates the geometry.',
     },
     about: {
-      ru: 'Локальная CAD-среда для мейкеров и инженеров: ручное моделирование и ИИ-агенты работают над одной моделью, каждая правка сохраняется ревизией, которую можно сравнить и откатить.',
-      en: 'A local CAD workspace for makers and engineers: manual modelling and AI agents work on the same model, and every change is saved as a revision you can diff and roll back.',
+      ru: 'Локальная CAD-среда: ручное моделирование и ИИ-агенты работают над одной моделью с историей ревизий. У проекта уже есть сайт, кабинет пользователя, документация и открытый каталог плагинов с публикацией через GitHub.',
+      en: 'A local CAD workspace where manual modelling and AI agents share one model with revision history. The project also has a website, user account area, documentation and a public plugin catalog with publishing through GitHub.',
     },
     engineering: [
-      { ru: 'Свой формат CAD IR v2: именованные параметры и тела, история операций, подавление и откат.', en: 'Custom CAD IR v2: named parameters and bodies, feature history, suppression and rollback.' },
-      { ru: 'Точная геометрия на C++ и OpenCascade, бэкенд на Rust, 3D-вьюер на Three.js.', en: 'Exact geometry in C++ and OpenCascade, Rust backend, Three.js viewer.' },
-      { ru: 'Codex, Claude или свой CLI работают через систему разрешений, результат проверяется локально.', en: 'Codex, Claude or a custom CLI work through a permission system; results are validated locally.' },
-      { ru: 'Импорт STEP, экспорт в STEP, STL, OBJ, GLB, 3MF. Подписанные автообновления.', en: 'STEP import; STEP, STL, OBJ, GLB, 3MF export. Signed auto-updates.' },
+      { ru: 'CAD IR v2 и точная геометрия на C++ / OpenCascade, бэкенд на Rust, 3D-вьюер на Three.js.', en: 'CAD IR v2 and exact geometry in C++ / OpenCascade, Rust backend, Three.js viewer.' },
+      { ru: 'Codex и Claude с разрешениями и проверкой геометрии. STEP-импорт, экспорт в STEP, STL, OBJ, GLB, 3MF; подписанные обновления.', en: 'Codex and Claude with permissions and geometry validation. STEP import; STEP, STL, OBJ, GLB, 3MF export; signed updates.' },
+      { ru: 'WASM-плагины в песочнице Wasmtime: операции, команды и запись видео модели. Установка из файла или подписанного каталога.', en: 'WASM plugins in a Wasmtime sandbox: features, commands and model video capture. Installation from a file or signed catalog.' },
+      { ru: 'Сайт, кабинет и каталог на React + Fastify + PostgreSQL; публикация плагинов через GitHub App.', en: 'Website, account area and catalog built with React + Fastify + PostgreSQL; plugin publishing through a GitHub App.' },
     ],
     stack: ['Rust', 'C++', 'OpenCascade', 'Tauri', 'React', 'Three.js', 'TypeScript', 'Python'],
     loc: 53_000,
@@ -60,6 +63,8 @@ export const projects: Project[] = [
       { ru: 'Настройки: конфиденциальность', en: 'Settings: privacy' },
     ],
     links: [
+      { label: { ru: 'Сайт', en: 'Website' }, href: 'https://formacad.ru/' },
+      { label: { ru: 'Каталог плагинов', en: 'Plugin catalog' }, href: 'https://plugins.formacad.ru/' },
       { label: { ru: 'Релизы', en: 'Releases' }, href: `${gh('FormaCAD')}/releases` },
       { label: { ru: 'Код', en: 'Source' }, href: gh('FormaCAD') },
     ],
@@ -68,6 +73,7 @@ export const projects: Project[] = [
     id: 'vantix',
     name: 'VANTIX',
     version: '0.1.0',
+    versionSource: { repo: 'lovlyDev/VANTIX' },
     kind: { ru: 'Десктоп-приложение', en: 'Desktop app' },
     platforms: 'Windows, Linux',
     tagline: {
@@ -150,6 +156,7 @@ export const projects: Project[] = [
     id: 'pkgwise',
     name: 'PkgWise',
     version: '0.1.0-alpha.3',
+    versionSource: { repo: 'lovlyDev/pkgWise', path: 'package.json' },
     kind: { ru: 'CLI-инструмент', en: 'CLI tool' },
     platforms: 'npm, Node.js 22+',
     tagline: {
@@ -185,6 +192,7 @@ export const projects: Project[] = [
     id: 'branchly',
     name: 'Branchly',
     version: '0.1.0-alpha',
+    versionSource: { repo: 'lovlyDev/branchly', path: 'package.json' },
     kind: { ru: 'Десктоп-приложение', en: 'Desktop app' },
     platforms: 'Windows',
     tagline: {

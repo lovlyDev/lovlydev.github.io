@@ -1,4 +1,5 @@
 import { projects, type Project } from '../data/projects';
+import { useProjectVersion } from '../data/projectVersions';
 import { useLang } from '../i18n';
 import { Icon } from './Icon';
 import { PinnedScroller } from './PinnedScroller';
@@ -37,6 +38,7 @@ function LangBar({ langs }: { langs: [string, number][] }) {
 function Work({ p, onOpen }: { p: Project; onOpen: (i: number) => void }) {
   const { t } = useLang();
   const extra = p.shots.length - 5;
+  const version = useProjectVersion(p);
   return (
     <article className="work">
       <div className="work-media">
@@ -58,7 +60,7 @@ function Work({ p, onOpen }: { p: Project; onOpen: (i: number) => void }) {
       <div className="work-text">
         <header className="work-head">
           <h3>{p.name}</h3>
-          <span className="mono muted">{t(p.kind)} · {p.platforms}{p.version !== 'web' && ` · v${p.version}`}</span>
+          <span className="mono muted">{t(p.kind)} · {p.platforms}{version !== 'web' && ` · v${version}`}</span>
         </header>
         <p className="tagline">{t(p.tagline)}</p>
         <p className="muted about-p">{t(p.about)}</p>
